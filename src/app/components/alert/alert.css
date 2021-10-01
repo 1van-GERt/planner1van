@@ -1,0 +1,28 @@
+.alertContainer {
+	position: absolute;
+
+	z-index: 1050;
+
+	width: 200px;
+
+	box-shadow: -2px 2px 20px 9px currentColor;
+}
+
+.alertTitle{
+	text-align: center;
+	color: white;	
+}
+
+.alertBody {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align: center;
+	color: white;
+
+}
+
+.alertClose {
+	position: absolute;
+	top: 0;
+	right: 0;
+}

@@ -1,0 +1,6 @@
+export interface IUser {
+	 id: number,
+	 userName: string,
+	 userEmail: string,
+	 userPhone: number
+}

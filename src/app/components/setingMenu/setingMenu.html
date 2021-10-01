@@ -1,0 +1,71 @@
+<h3 class="page-header"> Настройки </h3>
+
+<h4 class="page-header"> Пользователь </h4>
+<form [formGroup]="userForm" novalidate>
+    <div>
+        <label>Имя:</label>
+        <input name="name" formControlName="userName">
+        <div *ngIf="userForm.controls['userName'].invalid 
+        && userForm.controls['userName'].touched">
+            неверно
+        </div>
+    </div>
+
+    <div>
+        <label>Почта:</label>
+        <input name="Email" formControlName="userEmail">
+        <div *ngIf="userForm.controls['userEmail'].invalid 
+        && userForm.controls['userEmail'].touched">
+            неверно
+        </div>
+    </div>
+
+    <div>
+        <label>Телефон:</label>
+        <input name="Phohe" formControlName="userPhohe">
+        <div *ngIf="userForm.controls['userPhohe'].invalid 
+        && userForm.controls['userPhohe'].touched">
+            неверно
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-default" 
+        (click)="addUser()"
+        [disabled]="userForm.invalid">
+            Сохранить
+        </button>
+    </div>
+</form>
+
+<h4 class="page-header"> Настройки окна сообщений </h4>
+
+<form [formGroup]=setingMenuForm>
+	<div>
+        <label>Цвет : </label>
+        <select  name="name" formControlName="alertColor">
+         	<option value="blue" >Синий</option>
+         	<option value="red" >Красный</option>
+         	<option value="lack" >Желтый</option>
+     	</select>
+    </div>
+
+    <div>
+        <label>Позиция : </label>
+        <select  name="name" formControlName="alertPosition">
+        <option value="1" >Верхний правый угол</option>
+        <option value="2">Нижний правый угол</option>
+        <option value="3">Нижний левый угол</option>
+        <option value="4">Верхний левый угол</option>
+        </select>
+    </div>
+
+
+
+    <div class="form-group">
+        <button class="btn btn-default" 
+        (click)="[saveSetingForm(), showAlert('Успешно','','Настройки окна сообщений сохранены')]">
+            Сохранить
+        </button>
+    </div>
+</form>

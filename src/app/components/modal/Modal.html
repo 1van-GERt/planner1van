@@ -1,0 +1,17 @@
+<div class="modalMaska" 
+		(click)="removeModal()">	
+</div>
+	
+<div class="modalContainer">
+	<h2 class="modalTitle">{{ modalTitle }}</h2>
+	<p class="modalBody">{{ modalBody }}{{ modalBtnYesFunction }}</p>
+
+
+	<div class="modalFooter">
+		<button (click)="[clickBtnYes(),showAlert('Успешно',  ''  ,'Продукт удален из списка')]">
+		{{ modalBtnYes }}
+		</button>
+		<button (click)="removeModal()" >{{ modalBtnNo }}</button>
+	</div>
+	
+</div>

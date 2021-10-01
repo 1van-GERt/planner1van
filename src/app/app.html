@@ -1,0 +1,13 @@
+<div #tpl>
+     <h1>Планировщик от Ивана</h1>
+     <nav>
+     		<a routerLink="" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">Главная</a>
+     		<a routerLink="products" routerLinkActive="active">Список покупок</a>
+    		<a routerLink="seting" routerLinkActive="active">Настройки</a>
+     </nav>
+     <router-outlet></router-outlet>
+      <div #test>TestApp</div>
+      <template #modal>TestAppModal</template>
+         
+</div>
+

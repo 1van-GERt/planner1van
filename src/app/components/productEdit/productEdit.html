@@ -1,0 +1,35 @@
+<div>
+	<h2>{{productEditResources.productInfoTitle}}</h2>
+	<h3>Продукт:
+		<input type="text" 
+				[(ngModel)]="purchaseEdit" 
+				placeholder = "Название"
+				value="{{product.purchase}}">
+	</h3>
+	<h4>Цена: 
+			<input type="number" 
+				[(ngModel)]="priceEdit" 
+				placeholder = "Цена"
+				value="{{product.price}}">
+   </h4>
+	<h4>Количество: 
+			<input type="number" 
+				[(ngModel)]="amountEdit" 
+				placeholder = "Количество"
+				value="{{product.amount}}">
+   </h4>
+
+
+	<button routerLink="/products"> 
+		{{productEditResources.btnBackToProductsList}}
+	</button>
+   <button [routerLink]="['/products/info', product.id]">
+   	{{productEditResources.btnBackToProduct}}
+   </button>
+   <button (click)= "showModal(modalContent)">
+   	{{productEditResources.btnSaveProduct}}
+   </button>
+
+   	 
+
+</div>

@@ -1,0 +1,45 @@
+.modalMaska{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #503bf1;
+	opacity: .5;
+}
+
+.modalContainer{
+	position: absolute;
+	top: 40vh;
+	left: 40vw;
+	z-index: 1100;
+	width: 201px;
+	min-height: 150px;
+
+	background-color: #271e71;
+
+
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 4px 6px 20px 0px #271e71;
+}
+
+.modalTitle{
+	text-align: center;
+	color: white;
+}
+
+.modalBody{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align: center;
+	color: white;
+}
+
+.modalFooter{
+	display: flex;
+	justify-content: space-around;
+	btn{
+		color: black;}
+}

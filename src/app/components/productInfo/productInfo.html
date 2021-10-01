@@ -1,0 +1,20 @@
+<div>
+	<h2>{{productInfoResources.productInfoTitle}}</h2>
+	<h3>Продукт: {{product.purchase}} </h3>
+	<h4>Цена: {{product.price}} </h4>
+	<h4>Количество: {{product.amount}} </h4>
+	<h4>Общая цена: {{product.price*product.amount}}</h4>
+
+	<button routerLink="/products"> 
+		{{productInfoResources.btnBackToProductsList}}
+	</button>
+   <button [routerLink]="['/products/edit', product.id]">
+   	{{productInfoResources.btnEditProduct}}
+   </button>
+   <button (click)= "showModal(modalContent)">
+   	{{productInfoResources.btnDelProduct}}
+   </button>
+
+   	 
+
+</div>

@@ -1,0 +1,11 @@
+	<div [style.background-color]="alertColor"
+		  [style]="finalAlertPosition"
+		  [style.background-color]="alertColor"
+	class="alertContainer">
+		
+		<h3  class="alertTitle"> {{ alertTitle }} </h3>
+		<p class="alertBody"> {{ alertBody }} </p>
+		<button (click)="clickBtnClose()" class="alertClose"> {{ alertBtnClose }} </button>
+	
+	</div>
+
