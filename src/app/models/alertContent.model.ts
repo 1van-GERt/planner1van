@@ -1,15 +1,15 @@
 export class AlertContent{
+	public alertId!: number;
 	public alertTitle!: string;
-	public alertBody!: string;
-	public alertBtnClose: string = 'Close';
+	public alertBody!: string
 
 	constructor(
+		alertId: number,
 		alertTitle: string,
-		alertBody: string,
-		alertBtnClose: string
+		alertBody: string
 	){
+		this.alertId = alertId;
 		this.alertTitle = alertTitle;
 		this.alertBody = alertBody;
-		this.alertBtnClose = alertBtnClose;
 	}
 }

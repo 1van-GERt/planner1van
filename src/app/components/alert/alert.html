@@ -1,11 +1,10 @@
-	<div [style.background-color]="alertColor"
-		  [style]="finalAlertPosition"
-		  [style.background-color]="alertColor"
-	class="alertContainer">
-		
-		<h3  class="alertTitle"> {{ alertTitle }} </h3>
-		<p class="alertBody"> {{ alertBody }} </p>
-		<button (click)="clickBtnClose()" class="alertClose"> {{ alertBtnClose }} </button>
-	
-	</div>
+<div [style.background-color]="alertColor"
+	  [style]="finalAlertPosition"
+	  [style.background-color]="alertColor"
+class="alertContainer">
+	<button (click)="clickBtnClose()" class="alertClose"> Закрыть </button>
+
+	<ng-template #alertContainer>alertContainer</ng-template>
+</div>
+
 

@@ -2,6 +2,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 1101;	
 	width: 100vw;
 	height: 100vh;
 	background-color: #503bf1;
@@ -12,7 +13,7 @@
 	position: absolute;
 	top: 40vh;
 	left: 40vw;
-	z-index: 1100;
+	z-index: 1102;
 	width: 201px;
 	min-height: 150px;
 

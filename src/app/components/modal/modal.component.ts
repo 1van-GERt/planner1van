@@ -50,8 +50,8 @@ export class ModalComponent{
      this.modalService.removeModal(true); 
    }
 
-    showAlert(text1:string, text2:string,text3:string){
-        this.alertService.showAlertTest(text1, text2, text3)
+    showAlert(){
+        /*this.alertService.showAlertTest(text1, text2, text3)*/
     }
 
 

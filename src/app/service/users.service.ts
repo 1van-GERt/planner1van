@@ -13,10 +13,7 @@ export class UsersServise{
 	public users: IUser[] = 
 		[ 
 			{
-				id: 1,
-				userName: "GERt",
-				userEmail: "email",
-				userPhone: 1234567890,
+				id: 0, userName: "GERt", userEmail: "email",	userPhone: 1234567890,
 			}
 		];
 
@@ -24,7 +21,7 @@ export class UsersServise{
 	addUser(user: any){
 			this.id+=1;
 			this.users.push({ id: this.id, ...user })
-			console.log('servise', this.users);
+			console.log('UsersServise', this.users);
 
 	}
 }

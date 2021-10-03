@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Component, NgModule,Input,ComponentFactory,ComponentRef, ComponentFactoryResolver, ViewContainerRef, ChangeDetectorRef, TemplateRef, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ModalContent } from '../models/modalContent.model';  
 import { ProductInfoComponent } from '../components/productInfo/productInfo.component'; 
 import { AppComponent }   from './../app.component';
@@ -24,20 +24,24 @@ export class ModalService{
   public refApp: any;
   public factoryApp: any;
   public onModalClose: Subject<any> = new Subject();
+  public componentRef: any;
 
-
+  constructor(public componentFactoryResolver: ComponentFactoryResolver ){}
 
   
-  logRefApp(ref:any, factory:any){
+  
+  logRefApp(ref:any){
     this.refApp = ref;
-    this.factoryApp = factory;
   }
+
+
 
   showModal(modalContent: ModalContent, product: Product){
     this.modalContent = modalContent;
     this.product = product;
-    const componentFactory = this.factoryApp.resolveComponentFactory(ModalComponent);
-    const componentRef = this.refApp.createComponent(componentFactory); 
+    const modalComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ModalComponent);
+    this. componentRef = this.refApp.createComponent(modalComponentFactory); 
+
   }
 
   removeModal(isCloseModal: boolean):void{

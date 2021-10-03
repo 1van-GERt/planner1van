@@ -9,8 +9,9 @@ import { ModalContent } from '../../models/modalContent.model';
 import { take } from 'rxjs/operators';
 
 import { AlertService } from '../../service/alert.service';
-import { AlertContent } from '../../models/alertContent.model';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+
+import { Purchase10Pipe } from '../../productPurchase.pipe'
 
 
 @Component({
@@ -18,9 +19,9 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
     templateUrl: 'products.html',
     styleUrls: ['products.css']
 })
+
+
 export class ProductsComponent {
-    public text: any = "";
-    public price!: number;
     public productId: number = 4;      
     public sumPrice: number = 1; 
     public totalPrice: number = 0;
@@ -39,10 +40,7 @@ export class ProductsComponent {
     productAddForm : FormGroup = new FormGroup({
 
     'productName': new FormControl('', Validators.required),
-    'productPrice': new FormControl('', [
-         Validators.required/*,
-         Validators.pattern("[0-9]"{1-9})*/
-        ]),
+    'productPrice': new FormControl('',  Validators.required),
     })
 
     get pageNumbers(): number[] {
@@ -70,16 +68,11 @@ export class ProductsComponent {
             'Нет'
         );
 
-    public alertContent = new AlertContent( 
-        'Добавление',
-        'Вы добавили Предмет',
-        'Close'
-    );
     
    constructor(
        private productsService: ProductsService,
        public modalService: ModalService,
-       public alertService: AlertService
+       public alertService: AlertService,
     ){};
 
     
@@ -91,7 +84,6 @@ export class ProductsComponent {
 
 
     addProduct(){
-        console.log(this.productAddForm.value)
         this.Products = this.productsService.addProduct(this.productAddForm);
         this.productAddForm.reset()
     }
@@ -145,13 +137,12 @@ export class ProductsComponent {
 
     sortProducts(key: string):void {
         this.btnSoctActive = (this.btnSoctActive == true) ? false : true;
-        console.log(key)
         this.Products = (this.btnSoctActive == true) ? 
             this.Products.sort((a: any, b: any) => a[key] !== b[key] ? a[key] < b[key] ? -1 : 1 : 0) 
             : this.Products.sort((a: any, b: any) => b[key] !== a[key] ? b[key] < a[key] ? -1 : 1 : 0);;
     }
 
-    showAlert(text1:string, text2:string,text3:string){
-        this.alertService.showAlertTest(text1, text2, text3)
+    showAlert(alertContentKey: number, alertItem: string){
+        this.alertService.showAlert(alertContentKey, alertItem)
     }
 }

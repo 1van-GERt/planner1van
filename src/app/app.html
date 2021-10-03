@@ -1,13 +1,14 @@
-<div #tpl>
-     <h1>Планировщик от Ивана</h1>
+<div class="app">
+     <h1 class="title">Планировщик от Ивана</h1>
      <nav>
      		<a routerLink="" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">Главная</a>
      		<a routerLink="products" routerLinkActive="active">Список покупок</a>
     		<a routerLink="seting" routerLinkActive="active">Настройки</a>
      </nav>
-     <router-outlet></router-outlet>
-      <div #test>TestApp</div>
-      <template #modal>TestAppModal</template>
-         
+
+     <router-outlet ></router-outlet>    
+
 </div>
 
+<ng-template #modal>modal</ng-template>
+<ng-template #alert>Alert</ng-template>

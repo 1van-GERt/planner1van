@@ -11,8 +11,10 @@ import { ProductEditComponent }   from './components/productEdit/productEdit.com
 import { ModalComponent  }   from './components/modal/modal.component';
 import { AlertComponent  }   from './components/alert/alert.component';
 import { SetingMenuComponent } from './components/setingMenu/setingMenu.component'
-import { AlertAddDelComponent }   from './components/products/alertAddDel/alertAddDel.component';
+import { ProductsAlertContent }   from './components/products/productsAlertContent/productsAlertContent.component';
 
+
+import { Purchase10Pipe } from './productPurchase.pipe'
 
 
 /*дочерняя маршрутизация*/
@@ -47,7 +49,8 @@ const appRoutes: Routes =[
         ModalComponent,
         AlertComponent,
     	NotFoundComponent,
-        AlertAddDelComponent
+        ProductsAlertContent,
+        Purchase10Pipe
     ],
 
     providers: [
@@ -58,7 +61,7 @@ const appRoutes: Routes =[
     entryComponents:[
         ModalComponent,
         AlertComponent,
-        AlertAddDelComponent
+        ProductsAlertContent
     ],
 
     bootstrap:    [ AppComponent ]

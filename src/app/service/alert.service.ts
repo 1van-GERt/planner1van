@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ComponentFactoryResolver } from '@angular/core';
 import { AlertComponent } from '../components/alert/alert.component'
 import { AlertContent } from '../models/alertContent.model'; 
 import {Subject, timer } from 'rxjs';
-import { AlertAddDelComponent } from '../components/products/alertAddDel/alertAddDel.component'
-
+import { ProductsAlertContent } from '../components/products/productsAlertContent/productsAlertContent.component'
 
 
 
@@ -13,50 +12,48 @@ import { AlertAddDelComponent } from '../components/products/alertAddDel/alertAd
 
 
 export class AlertService{
-	public alertTitle!: string;
-	public alertBody!: string;
-
-/*	public alertContent!: AlertContent;*/
-
 	public refApp: any; 
 	public factoryApp: any;
 	public onAlertClose: Subject<any> = new Subject();
 	public numbers = timer(5000);
+  public numbersTest = timer(1);
 
   public refAlert: any;
-  public factoryAlert: any;  
+  public refAlertContainer: any; 
 
-    public alertContent = new AlertContent( 
-        '',
-        '',
-        'Close'
-    );
+  public alertContentKey: number = 0; 
+  public alertItem: string = '';
 
-	logRefApp(ref:any, factory:any){
+
+  constructor(
+    public componentFactoryResolver: ComponentFactoryResolver
+   ){}
+
+
+
+  logRefApp(ref:any){
 		this.refApp = ref;
-		this.factoryApp = factory;
 	}
 
-   logRefAlert(ref:any, factory:any){
-		this.refAlert = ref;
-    this.factoryAlert = factory;
-   }
-
-	ngOnInit(){
-		
-	}
+  logRefAlert(ref:any){
+	  this.refAlert = ref;
+  }
 
 
-
-	showAlertTest(text1:string, text2:string,text3:string){
-        this.alertContent.alertTitle = text1;
-        this.alertContent.alertBody = text2+text3;
-    const componentFactory = this.factoryApp.resolveComponentFactory(AlertComponent);
-    const componentRef = this.refApp.createComponent(componentFactory);
-    const componentFactoryTest = this.factoryAlert.resolveComponentFactory(AlertAddDelComponent);
-    const componentRefTest = this.refAlert.createComponent(componentFactoryTest);     
+	showAlert(alertContentKey: number,alertItem: string){
+    const alertComponentFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+    const alertComponentRef = this.refApp.createComponent(alertComponentFactory);
     this.numbers.subscribe(x => { this.removeAlert(true); clearInterval });
+    this.numbersTest.subscribe(x => { this.showAlertContent(alertContentKey, alertItem); clearInterval });   
 	}
+
+  showAlertContent(alertContentKey: number, alertItem: string){
+    this.alertContentKey = alertContentKey;
+    this.alertItem = alertItem;
+    const alertContainerComponentFactory = this.componentFactoryResolver.resolveComponentFactory(ProductsAlertContent);
+    const alertContainerComponentRef = this.refAlert.createComponent(alertContainerComponentFactory);  
+
+  }
 
   removeAlert(isCloseAlert: boolean):void{
     this.onAlertClose.next(isCloseAlert);

@@ -46,17 +46,17 @@
         <select  name="name" formControlName="alertColor">
          	<option value="blue" >Синий</option>
          	<option value="red" >Красный</option>
-         	<option value="lack" >Желтый</option>
+         	<option value="yellow" >Желтый</option>
      	</select>
     </div>
 
     <div>
         <label>Позиция : </label>
         <select  name="name" formControlName="alertPosition">
-        <option value="1" >Верхний правый угол</option>
-        <option value="2">Нижний правый угол</option>
-        <option value="3">Нижний левый угол</option>
-        <option value="4">Верхний левый угол</option>
+            <option value="1">Верхний правый угол</option>
+            <option value="2">Нижний правый угол</option>
+            <option value="3">Нижний левый угол</option>
+            <option value="4">Верхний левый угол</option>
         </select>
     </div>
 
@@ -64,7 +64,11 @@
 
     <div class="form-group">
         <button class="btn btn-default" 
-        (click)="[saveSetingForm(), showAlert('Успешно','','Настройки окна сообщений сохранены')]">
+                (click)="[saveSetingForm(),
+                         showAlert()
+                         ]"
+                [disabled]="setingMenuForm.pristine"
+        >
             Сохранить
         </button>
     </div>

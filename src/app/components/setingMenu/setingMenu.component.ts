@@ -22,8 +22,7 @@ export class SetingMenuComponent {
 
 
 	public setingMenu!: SetingMenu;
-	public colorAlert: string = 'blue';
-
+	public colorAlert!: string;
 
 	userForm : FormGroup = new FormGroup({
 
@@ -42,14 +41,14 @@ export class SetingMenuComponent {
 
 	setingMenuForm : FormGroup = new FormGroup({
 
-		'alertColor': new FormControl('blue', Validators.required),
-		'alertPosition': new FormControl('3', Validators.required),
+		'alertColor': new FormControl(this.setingMenuService.alertColor, Validators.required),
+		'alertPosition': new FormControl(this.setingMenuService.alertPosition, Validators.required),
 		})
 
 	saveSetingForm(){
 		this.setingMenuService.saveSetingMenu(this.setingMenuForm.value);
 	}	
-    showAlert(text1:string, text2:string,text3:string){
-        this.alertService.showAlertTest(text1, text2, text3)
+    showAlert(){
+        /*this.alertService.showAlertTest(text1, text2, text3)*/
     }	
 }

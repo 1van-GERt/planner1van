@@ -29,54 +29,18 @@
             <div class="form-group">
                 <button class="btn btn-default"
                         class="form-control" 
-                        (click)="showAlert(
-                            'Успешно',
-                            productAddForm.value.productName,
-                            ' добавлено в список покупок'
-                        )"
+                        (click)="showAlert(1,productAddForm.controls['productName'].value)"
                         (click)="addProduct()"
                         [disabled]="productAddForm.invalid">
                     {{productsResources.btnAddProduct}}
                 </button>
             </div>                        
-       
 
-
-<!--         <div class="form-group">
-            <div class="col-md-8">
-                <input class="form-control"
-                       [(ngModel)]="text" 
-                       name="text" 
-                        placeholder = "Название" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6">
-                <input type="number" 
-                       class="form-control"
-                       [(ngModel)]="price"
-                       placeholder="Цена" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-8">
-                <button class="btn btn-default" 
-                (click)="addProduct(text, price, productId, Products)"
-                (click)="showAlert(text)"
-                >
-                    {{productsResources.btnAddProduct}}
-                </button>
-            </div>
-        </div> -->
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-8">
                     <button class="btn btn-default" 
                     (click)="DelAllProducts(Products)"
-                    (click)="showAlert(
-                            'Успешно',
-                            'Все купленные предметы удалены',
-                            ''
-                        )"
+                    (click)="showAlert(3,'')"
                     >
                         {{productsResources.btnDelAllProduct}}
                     </button>
@@ -84,7 +48,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-8">
-                    Итоговая цена:{{totalPrice}}
+                    Итоговая цена: {{totalPrice | currency:'BYN'}}
                 </div>
             </div>
          </form> 
@@ -104,25 +68,25 @@
         <tbody>
             <tr *ngFor="let Product of resulProducts; let i = index">
                 <td>
-                    {{Product.id}}
+                    {{Product.id | number:'2.0-0'}}
                 </td>
                 <td>
-                    {{Product.purchase}}
+                    {{Product.purchase | TestPipe}}
                 </td>
                 <td>
                     <button [routerLink]="['info', Product.id]" 
                      class="btn btn-default">
-                        {{productsResources.btnAboutProduct}}
+                        {{productsResources.btnAboutProduct }}
                     </button>
                 </td>                   
                 <td>
                     <input type="number" [(ngModel)]="Product.amount"/>
                 </td>
                 <td>
-                    {{Product.price}}
+                    {{Product.price | currency:'BYN'}}
                 </td>
                 <td>
-                    {{Product.price*Product.amount}}
+                    {{Product.price*Product.amount | currency:'BYN'}}
                 </td>
                 <td>
                     <input type="checkbox" [(ngModel)]="Product.done">
@@ -141,7 +105,7 @@
 
 <div class="panel" style="display: flex">
     <select [(ngModel)]="productsPerPage">
-        <option value="3">3 продуктов на страницу</option>
+        <option value="3">3 продукта на страницу</option>
         <option value="6">6 продуктов на страницу</option>
         <option value="8">8 продуктов на страницу</option>
     </select>

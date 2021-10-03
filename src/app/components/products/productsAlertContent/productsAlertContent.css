@@ -1,0 +1,9 @@
+.alertContentTitle {
+	color: white;
+	text-align: center;
+	border-bottom: 1px solid white;
+}
+.alertContentBody {
+	color: white;
+	text-align: center;
+}
