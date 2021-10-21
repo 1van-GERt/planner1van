@@ -1,26 +1,30 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
- import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 import { AppComponent }   from './app.component';
-import { ProductsComponent }   from './components/products/products.component';
-import { HomeComponent }   from './components/home/home.component';
-import { NotFoundComponent }   from './components/not-found.component';
-import { ProductInfoComponent }   from './components/productInfo/productInfo.component';
-import { ProductEditComponent }   from './components/productEdit/productEdit.component';
-import { ModalComponent  }   from './components/modal/modal.component';
-import { AlertComponent  }   from './components/alert/alert.component';
-import { SetingMenuComponent } from './components/setingMenu/setingMenu.component'
-import { ProductsAlertContent }   from './components/products/productsAlertContent/productsAlertContent.component';
-
+import { ProductsComponent }   from './modules/products/products.component';
+import { HomeComponent }   from './modules/home/home.component';
+import { ProductInfoComponent }   from './modules/productInfo/productInfo.component';
+import { ProductEditComponent }   from './modules/productEdit/productEdit.component';
+import { SetingMenuComponent } from './modules/setingMenu/setingMenu.component'
 
 import { Purchase10Pipe } from './productPurchase.pipe'
 
+import { ModalModule } from'./modules/modal/modal.module';
+import { AlertModule } from'./modules/alert/alert.module';
+import { HomeModule } from'./modules/home/home.module';
+import { ProductEditModule } from'./modules/productEdit/productEdit.module'
+import { ProductInfoModule } from'./modules/productInfo/productInfo.module'
+import { ProductsModule } from'./modules/products/products.module'
+import { ProductsAlertContentModule } from'./modules/products/productsAlertContent/productsAlertContent.module'
+import { SetingMenuModule } from'./modules/setingMenu/setingMenu.module'
 
-/*дочерняя маршрутизация*/
-/*const productRoutes: Routes = [
-    {path: 'price', component: ProductPriseCononent}
-];*/
+import { SharedModule } from'./modules/shared/shared.module'
+import { RightMenuContainerModule } from'./modules/rightMenuContainer/rightMenuContainer.module'
+
+
+
 
 const appRoutes: Routes =[
     { path: '', component: HomeComponent},
@@ -36,32 +40,26 @@ const appRoutes: Routes =[
         BrowserModule, 
         FormsModule, 
         ReactiveFormsModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        ModalModule,
+        AlertModule,
+        HomeModule,
+        ProductEditModule,
+        ProductInfoModule,
+        ProductsModule,
+        ProductsAlertContentModule,
+        SetingMenuModule,
+        SharedModule,
+
     ],
     
     declarations: [ 
-    	AppComponent, 
-        HomeComponent, 
-    	ProductsComponent,
-        SetingMenuComponent, 
-        ProductInfoComponent,
-        ProductEditComponent,
-        ModalComponent,
-        AlertComponent,
-    	NotFoundComponent,
-        ProductsAlertContent,
-        Purchase10Pipe
+    	AppComponent,
+        Purchase10Pipe,
     ],
 
     providers: [
         AppComponent,
-        ProductInfoComponent
-    ],
-
-    entryComponents:[
-        ModalComponent,
-        AlertComponent,
-        ProductsAlertContent
     ],
 
     bootstrap:    [ AppComponent ]

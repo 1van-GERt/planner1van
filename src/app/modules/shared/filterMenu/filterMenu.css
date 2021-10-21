@@ -1,0 +1,16 @@
+.filterFormItem{
+	position: relative;	
+	border: 1px solid white;
+	padding: 5px;
+
+}
+
+.filterFormItemValue{
+	display: flex;
+}
+
+.filterFormChangeBtnAdd{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}

@@ -1,0 +1,57 @@
+	<h3>Фильтрация списка покупок</h3>	
+
+<form [formGroup]="filterMenuForm">   
+
+    <div class="filterFormItem">
+        <div class="filterFormItemOptions" >
+            <label>Параметр фильтрации :</label>
+            <select formControlName="filterOptions" (change)="clearFilterValue()" >
+                <option value="id">Номер</option>
+                <option value="purchase">Предмет</option>
+                <option value="amount">Количество</option>
+                <option value="price">Цена</option>
+                <option value="price">Общая цена</option>
+                <option value="done" >Купленно</option>
+            </select>
+        </div>
+        
+        <div class="filterFormItemValue" >
+            <label>Значение фильтрации :</label>
+            <div [ngSwitch]="key">
+                <ng-template ngSwitchDefault> 
+                    <input formControlName="filterValue" >
+                </ng-template>
+                <ng-template ngSwitchCase="done">
+                <select formControlName="filterValue">
+                    <option  value="true">Куплен</option>
+                    <option value="false">Не куплен</option>
+
+                </select>
+                </ng-template>
+            </div>
+        </div>
+
+        <button class="filterFormChangeBtnAdd" 
+                (click)="addControltest()"> + </button>     
+    </div>
+        
+    
+
+    <button (click)="showFilterMenu()">Применить</button>
+    <button (click)="cancelFilter()">Сбросить</button>
+</form>
+
+
+<form [formGroup]="formTest" >
+    <ul>
+        <li *ngFor="let item of formTest.value | keyvalue, let i = index">
+               {{i}},{{testI}}
+          <!--       {{formTest.value['control'+ '1'].filterOptions}}: 
+                {{formTest.value['control1'].filterValue}}
+               {{item[filterOptions]}} -->
+        </li>
+
+    </ul>
+    
+</form>
+

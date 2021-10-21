@@ -1,0 +1,13 @@
+<div class="col-md-offset-2 col-md-8" class="DropDownMenu">
+   <button (click)="showDropDownMenu()"
+   class="btn btn-default DropDownMenuBtn" >
+     Допольнительно
+   </button>
+   <div class="DropDownMenuContent" *ngIf="btnDropDownMenuShow">
+  		<div class="DropDownMenuItem"   *ngFor="let DropDownMenuItem of DropDownMenuItems,let i = index">
+			<button (click)="DropDownMenuItem.dropDownMenuFun()" class="DropDownMenuLink">{{ DropDownMenuItem.dropDownMenuBtn }}</button>
+  		</div>           
+   </div>
+   			
+
+</div>

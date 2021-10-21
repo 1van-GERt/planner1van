@@ -1,0 +1,20 @@
+.DropDownMenu{
+	width: 150px;
+}
+
+.DropDownMenuBtn{
+	position: relative;
+	width: 100%;
+}
+
+.DropDownMenuContent {
+	position: absolute;
+	width: 150px;
+}
+.DropDownMenuItem {
+	width: 100%;
+}
+
+.DropDownMenuLink{
+	width: 100%;
+}
